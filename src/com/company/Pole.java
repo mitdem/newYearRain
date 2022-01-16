@@ -1,7 +1,10 @@
 package com.company;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 public class Pole extends JPanel {
 
@@ -15,19 +18,20 @@ public class Pole extends JPanel {
     private Image gift3;
 
     Pole() {
+        try {
+            fon = ImageIO.read(new File("resource/fon.png"));
+            person = ImageIO.read(new File("resource/person.png"));
+            gift3 = ImageIO.read(new File("resource/gift3.png"));
+        } catch (IOException e) {
+            System.out.println("Возникла ошибка при считывании файла");
+        }
     }
 
-    // Через конструктор картинку передаем
-    Pole(Image image1, Image image2,Image image3) {
-        fon = image1;
-        person = image2;
-        gift3 = image3;
-    }
 
-    // Метод рисования чего угодно
-    public void paintComponent(Graphics g) {
-        g.drawImage(fon, 0, 0, null);
-        g.drawImage(person, 200, 200, null);
-        g.drawImage(gift3, 250, 100, null);
+        // Метод рисования чего угодно
+        public void paintComponent(Graphics g) {
+            g.drawImage(fon, 0, 0, null);
+            g.drawImage(person, 200, 200, null);
+            g.drawImage(gift3, 250, 100, null);
+        }
     }
-}
