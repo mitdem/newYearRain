@@ -8,6 +8,9 @@ class MyKey implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         System.out.println(e.getKeyCode());
+
+        Pole.x = Pole.x + 10;
+
     }
 
     @Override
